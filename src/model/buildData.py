@@ -1,5 +1,3 @@
-from sql.SqlTemplate import SqlTemplate
-from csharp.CSharpTemplate import parseCSharp
 import re
 import collections
 import random
@@ -18,14 +16,8 @@ def tokenizeNL(nl):
 
 def tokenizeCode(code, lang):
   code = code.strip().decode('utf-8').encode('ascii', 'replace')
-  typedCode = None
-  if lang == "sql":
-    query = SqlTemplate(code, regex=True)
-    typedCode = query.parseSql()
-  elif lang == "csharp":
-    typedCode = parseCSharp(code)
-  elif lang == "python":
-    typedCode = q.strip().decode('utf-8').encode('ascii', 'replace').split("\\s")
+
+  typedCode = q.strip().decode('utf-8').encode('ascii', 'replace').split("\\s")
 
   tokens = [re.sub( '\s+', ' ', x.strip())  for x in typedCode]
   return tokens
