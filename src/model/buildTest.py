@@ -1,7 +1,16 @@
 from model.buildData import get_data
+from model.buildTrain import preprocess
 import os
 
+
+
+
 if __name__ == '__main__':
+
+        #Cmdline arguments:
+    #[1] - path to dataset directory
+    dataset = sys.argv[1]
+    preprocess("test","eval",dataset)
 
     lang="java"
     max_code_len = 100
